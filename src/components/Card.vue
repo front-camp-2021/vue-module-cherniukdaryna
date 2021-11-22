@@ -1,30 +1,30 @@
 <template>
   <div class="product-card">
     <div class="image">
-      <img class="image__goods" src="" />
+      <img class="image__goods" :src="productsList.images[0]" />
     </div>
 
     <div class="rating-price">
       <div class="rating">
-        4,1
-        <img class="rating__image-star" src="img/star.svg" />
+        {{productsList.rating}}
+        <img class="rating__image-star" src="@/assets/img/star.svg" />
       </div>
 
-      <p class="price">$199</p>
+      <p class="price">{{productsList.price}}</p>
     </div>
 
-    <p class="product-card__name">JBL Speaker</p>
+    <p class="product-card__name"></p>
     <p class="product-card__information">
-      Redesigned from scratch and completely revised.
+      {{productsList.title}}
     </p>
 
     <div class="product-card-buttons">
       <button class="product-card-buttons__wishlist">
-        <img class="product-card-buttons__image-heart" src="img/heart.svg" />
+        <img class="product-card-buttons__image-heart" src="@/assets/img/heart.svg" />
         <span class="product-card-buttons__name">WISHLIST</span>
       </button>
       <button class="product-card-buttons__add">
-        <img class="product-card-buttons__image-basket" src="img/basket.svg" />
+        <img class="product-card-buttons__image-basket" src="@/assets/img/basket.svg" />
         <span class="product-card-buttons__name">ADD TO CART</span>
       </button>
     </div>
@@ -34,6 +34,14 @@
 <script>
 export default {
   name: "Card",
+
+  props: {
+    productsList: {
+      type: Object,
+      requier: false,
+    }
+  }
+
 };
 </script>
 
@@ -41,7 +49,7 @@ export default {
   @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap");
   .product-card {
     width: 20vw;
-    height: 45vh;
+    height: 43vh;
     background-color: white;
     padding-top: 2vh;
     position: relative;
@@ -150,7 +158,7 @@ export default {
   @media screen and (max-width: 1200px) {
     .product-card {
       width: 30vw;
-      height: 45vh;
+      height: 43vh;
     }
 
     .rating {
@@ -167,7 +175,7 @@ export default {
   @media screen and (max-width: 480px) {
     .product-card {
       width: 100%;
-      height: 45vh;
+      height: 43vh;
     }
 
     .rating {

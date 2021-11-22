@@ -9,18 +9,13 @@
 
     <div class="filters-navigation">
       <div class="second-filtres-list">
-        <p class="second-filtres-list__name--bold"><b>Category</b></p>
-
-        <filters-list />
+        <p class="second-filtres-list__name--bold"><b>Price</b></p>
+        <double-slider />
       </div>
 
       <img class="filters-navigation__line" src="@/assets/img/Divider.png" /><br />
 
-      <div class="second-filtres-list">
-        <p class="second-filtres-list__name--bold"><b>Brand</b></p>
-
-        <filters-list />
-      </div>
+      <filters-list />
     </div>
 
     <button class="filters-default__buttonn-clear-all">Clear all filters</button>
@@ -28,11 +23,12 @@
 </template>
 
 <script>
+import DoubleSlider from './DoubleSlider.vue';
 import FiltersList from './FiltersList.vue';
 
 export default {
   name: 'SideBar',
-  components: {FiltersList}
+  components: {FiltersList, DoubleSlider}
 }
 </script>
 

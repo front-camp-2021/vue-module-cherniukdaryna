@@ -1,19 +1,51 @@
 <template>
   <div class="catalog">
-    <card />
+    <card v-for="item in resultList" :key="item.id" :productsList="item"/>
   </div>
 </template>
 
 <script>
 import Card from "./Card.vue";
+
 export default {
   name: "AllContent",
 
   components: {
     Card,
   },
+
+  props: {
+    currentPage: {
+      type: Number,
+      requier: false,
+    }
+  },
+
+  data() {
+    return {
+      cardsList: [],
+    }
+  },
+
+  beforeMount(){
+    this.getProducts();
+  },
+  methods: {
+    async getProducts(){
+      const res = await fetch('http://localhost:3001/products');
+      const data = await res.json();
+      this.cardsList = data;
+    }
+  },
+
+  computed: {
+    resultList(){
+      return this.cardsList.slice(this.currentPage * 9 - 9, this.currentPage * 9);
+    }
+  },
+  
 };
-</script>.
+</script>
 
 <style lang="scss" scoped>
   .catalog {

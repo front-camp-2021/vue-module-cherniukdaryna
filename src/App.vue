@@ -6,29 +6,14 @@
 
     <side-bar-mini />
 
-    <div class="all-content">
-      <side-bar />
-      <div class="content">
-        <results />
-
-        <search />
-
-        <cards-list />
-      </div>
-
-      <footer-pagination />
-    </div>
+    <all-content />
   </div>
 </template>
 
 <script>
-import CardsList from "./components/CardsList.vue";
-import FooterPagination from './components/FooterPagination.vue';
+import AllContent from './components/AllContent.vue';
 import HeaderLogo from "./components/HeaderLogo.vue";
 import Navigation from "./components/Navigation.vue";
-import Results from "./components/Results.vue";
-import Search from "./components/Search.vue";
-import SideBar from './components/SideBar.vue';
 import SideBarMini from './components/SideBarMini.vue';
 
 export default {
@@ -36,12 +21,8 @@ export default {
   components: {
     Navigation,
     HeaderLogo,
-    Results,
-    CardsList,
-    Search,
-    SideBar,
-    FooterPagination,
     SideBarMini,
+    AllContent
   },
 };
 </script>
@@ -60,61 +41,7 @@ export default {
   color: black;
 }
 
-.all-content {
-  width: 100%;
-  height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  position: relative;
-  padding-bottom: 8vh;
-}
 
-.content {
-  height: 157.35vh;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5vh;
-  margin-right: 2vw;
-}
-
-@media screen and (max-width: 1200px) {
-  .content {
-    width: 63vw;
-    height: 253.35vh;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .content {
-    width: 100%;
-    height: 253.35vh;
-    padding-left: 2vw;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .all-content {
-    width: 100%;
-    height: 465vh;
-  }
-
-  .content {
-    margin: 0 2vw;
-  }
-}
 </style>
 
 
