@@ -5,6 +5,8 @@
       type="search"
       id="search"
       placeholder="  Search"
+      v-model="searchValue"
+      @keyup="setInput(searchValue)"
     />
 
     <button class="search__btn-glass">
@@ -19,8 +21,17 @@
 <script>
 export default {
   name: "Input",
-  components: {
+  
+  data(){
+    return {
+      search: ''
+    }
+  },
 
+  methods: {
+    setInput(value){
+      this.$emit('search', value);
+    }
   }
 };
 </script>

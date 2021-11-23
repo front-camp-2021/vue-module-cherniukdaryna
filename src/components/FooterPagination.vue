@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer" v-on:click="$emit(currentPage)">
+  <footer class="footer">
     <a
       class="footer__arrow-back-left"
       href="#"

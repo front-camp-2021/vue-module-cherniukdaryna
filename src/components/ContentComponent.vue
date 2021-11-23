@@ -2,9 +2,13 @@
   <div class="content">
     <results />
 
-    <search />
+    <search @search="onSearch"/>
 
-    <cards-list :currentPage="activePage"/>
+    <cards-list 
+    :currentPage="activePage" 
+    :categories="activeCategory" 
+    :brands="activeBrands"
+    :input="inputValue"/>
   </div>
 </template>
 
@@ -17,10 +21,32 @@ export default {
 
   components: { Search, Results, CardsList },
 
+  data(){
+    return {
+      inputValue: ''
+    }
+  },
+
   props: {
     activePage:{
       type: Number,
       requier: false,
+    },
+
+    activeCategory:{
+      type: Array,
+      requier: false,
+    },
+
+    activeBrands:{
+      type: Array,
+      requier: false,
+    },
+  },
+
+  methods: {
+    onSearch(value){
+      this.inputValue = value;
     }
   }
 };

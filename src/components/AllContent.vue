@@ -1,8 +1,8 @@
 <template>
   <div class="all-content">
-    <side-bar />
+    <side-bar @category="onCategory" @brands="onBrands"/>
 
-    <content-component :activePage="page"/>
+    <content-component :activePage="page" :activeCategory="activeCategories" :activeBrands="activeBrand"/>
 
     <footer-pagination @page="onPage" />
   </div>
@@ -21,12 +21,22 @@ export default {
   data() {
     return {
       page: 1,
+      activeCategories: [],
+      activeBrand: [],
     };
   },
 
   methods: {
     onPage(value) {
       this.page = value;
+    },
+
+    onCategory(value) {
+      this.activeCategories = value;
+    },
+
+    onBrands(value) {
+      this.activeBrand = value;
     },
   },
 };

@@ -18,6 +18,18 @@ export default {
     currentPage: {
       type: Number,
       requier: false,
+    },
+    categories: {
+      type: Array,
+      requier: false,
+    },
+    brands: {
+      type: Array,
+      requier: false,
+    },
+    input: {
+      type: String,
+      requier: false,
     }
   },
 
@@ -40,7 +52,11 @@ export default {
 
   computed: {
     resultList(){
-      return this.cardsList.slice(this.currentPage * 9 - 9, this.currentPage * 9);
+      return this.cardsList
+      .filter((item) => item.title.toLowerCase().includes(this.input, 0))
+      .filter((item) => this.categories.length > 0 ? this.categories.includes(item.category) : item.category)
+      .filter((item) => this.brands.length > 0 ? this.brands.includes(item.brand) : item.brand)
+      .slice(this.currentPage * 9 - 9, this.currentPage * 9);
     }
   },
   

@@ -11,8 +11,10 @@
       >
         <filter-item
           v-for="item in categoriesList"
-          :key="item.id"
+          :key="item"
           :filtersList="item"
+          @click="activeCategories(item)"
+          :isChecked="checkedStatus"
         />
       </form>
     </div>
@@ -35,6 +37,8 @@
           v-for="item in brandsList"
           :key="item.id"
           :filtersList="item"
+          @click="activeBrands(item)"
+          :isChecked="checkedStatus"
         />
       </form>
     </div>
@@ -56,6 +60,13 @@ export default {
     };
   },
 
+  props: {
+    checkedStatus: {
+      type: Boolean,
+      requier: false,
+    }
+  },
+
   beforeMount() {
     this.getCategories();
     this.getBrands();
@@ -72,6 +83,14 @@ export default {
       const data = await res.json();
       this.brandsList = data;
     },
+
+    activeCategories(value) {
+      this.$emit('categories', value);
+    },
+
+    activeBrands(value) {
+      this.$emit('brands', value);
+    }
   },
 };
 </script>
