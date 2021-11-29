@@ -10,9 +10,14 @@
     "json-server": "json-server"
   },
   "dependencies": {
+    "@vueform/slider": "^2.0.5",
+    "axios": "^0.24.0",
+    "calendar.vue": "0.0.1",
     "core-js": "^3.6.5",
     "json-server": "^0.16.3",
+    "multi-range-slider-vue": "^1.0.5",
     "vue": "^3.0.0",
+    "vue-range-component": "^1.0.3",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
